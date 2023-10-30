@@ -1,11 +1,11 @@
-import { PUBLIC_POCKETBASE_URL } from '$env/static/public';
+import { PUBLIC_POCKETBASE_HOST } from '$env/static/public';
 import pocketbase from 'pocketbase';
 
-let pb = new pocketbase(PUBLIC_POCKETBASE_URL);
+let pb = new pocketbase(PUBLIC_POCKETBASE_HOST);
 pb.autoCancellation(false);
 
 export function startPocketbase() { //Grabs ENV variable and lets you start a new pocketbase instance 
-    pb = new pocketbase(PUBLIC_POCKETBASE_URL);
+    pb = new pocketbase(PUBLIC_POCKETBASE_HOST);
     pb.autoCancellation(false);
 }
 
