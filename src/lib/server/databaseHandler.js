@@ -41,4 +41,7 @@ export default class databaseHandler {
         } 
 
     }
+    static async isLoggedIn() {
+        return pb.authStore.isValid;
+    }
 }
