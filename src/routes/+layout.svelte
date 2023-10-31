@@ -1,9 +1,10 @@
 <script>
-  import "../app.postcss";
+	import "../app.postcss";
+	
+	export let data;
+	const loggedIn = data.loggedIn;
+	console.log(loggedIn);
 
-  export let data;
-  const pb = data.pb;
-  const loggedIn = pb.authStore.isValid;
 
 </script>
 
