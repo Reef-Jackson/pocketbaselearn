@@ -1,5 +1,10 @@
 <script>
   import "../app.postcss";
+
+  export let data;
+  const pb = data.pb;
+  const loggedIn = pb.authStore.isValid;
+
 </script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"> 
@@ -10,9 +15,12 @@
     <a href="https://github.com/Reef-Jackson/pocketbaselearn" target="_blank" class="btn btn-ghost text-xl"> <i class="devicon-github-original text-4xl"></i></a>
     <div class="navbar-end">
       <ul class="menu menu-horizontal">
-        <li><a href="/login">Login</a></li>
+        {#if loggedIn}
+          <li><a href="/logout">Logout</a></li>
+        {:else}
+          <li><a href="/login">Login</a></li>
+        {/if}
         <li><a href="/register">Register</a></li>
-        <li><a href="/logout">Logout</a></li>
       </ul>
     </div>
   </div>
