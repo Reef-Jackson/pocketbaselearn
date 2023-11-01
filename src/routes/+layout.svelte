@@ -18,6 +18,7 @@
       <ul class="menu menu-horizontal">
         {#if loggedIn}
           <li><a href="/logout">Logout</a></li>
+          <li><a href="/bucket">Your todo list</a></li>
         {:else}
           <li><a href="/login">Login</a></li>
           <li><a href="/register">Register</a></li>
