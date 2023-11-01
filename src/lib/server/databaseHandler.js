@@ -57,12 +57,28 @@ export default class databaseHandler {
 
   static async deleteItem(formData) {
     try {
-      const data = formData; //it's not getting formdata here
+      const data = formData; 
       console.log(data);
       await pb.collection('bucket').delete(data);
       return { success: true, message: "Deleted Record" };
     } catch (error) {
       return { success: false, message: "DeleteItem() Error" };
+    }
+  }
+
+  static async addItem(formData) {
+    try {
+      const data = formData;
+      const userId = pb.authStore.model.id;
+      const query = {
+        "bucket_text": data.get("bucket-text"),
+        "userId": userId
+      }
+      await pb.collection('bucket').create(query);
+      return {success: true, message: "Added"};
+    } catch (e) {
+      console.error("The addItem function didn't get your data", e);
+      return { success: false, message: "Adding Error" };
     }
   }
 }

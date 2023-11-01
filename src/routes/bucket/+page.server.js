@@ -18,7 +18,7 @@ export async function load({ params }) {
 }
 
 export const actions = {
-    default: async ({ request, locals }) => {
+    deleteItem: async ({ request, locals }) => {
         
         const data = await request.formData();
         console.log(...data)
@@ -34,6 +34,23 @@ export const actions = {
             }
         } catch (error) {
             console.error(error);
+        }
+    },
+    addItem: async ({request, locals}) => {
+        const data = await request.formData();
+        console.log(...data)
+        const bucketText = data.get('bucket_text');
+        console.log(bucketText);
+
+        try {
+            const response = await databaseHandler.addItem(data);
+            if (response.success) {
+                console.log("Adding Success");
+            } else {
+                console.log("Error adding from server.js");
+            }
+        } catch (e) {
+            console.error(e);
         }
     }
 }
