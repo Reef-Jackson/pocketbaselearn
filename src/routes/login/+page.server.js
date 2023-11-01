@@ -6,6 +6,6 @@ export const actions = {
         const data = await request.formData();
         console.log(...data)
         const response = await databaseHandler.login(data);
-        if (response.success) throw redirect(301, "/");
+        if (response.success) throw redirect(301, "/bucket");
     }
 }
